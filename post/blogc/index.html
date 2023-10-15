@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Open Source, Linux, Embedded Linux, Learning">
+    <title>Tifoss.log - Static blog generation with blogc</title>
+    <link rel="stylesheet" href="//code.cdn.mozilla.net/fonts/fira.css">
+    <link rel="stylesheet" href="/assets/core.css">
+    <link rel="alternate" href="/atom.xml" type="application/atom+xml" title="Tifoss.log" />
+  </head>
+  <body>
+    
+    <aside class="logo">
+      <a href="/">
+        <img src="//www.gravatar.com/avatar/082a99323a1f3a4f807503fc69c1fc6cfea4291fff728127ba2df7fe220ceefa.png?s=80" class="gravatar">
+      </a>
+      <span class="logo-prompt">Back to Home</span>
+    </aside>
+    
+    <center>
+      <h1>Tifoss.log</h1>
+      <p>Open Source, Linux, Embedded Linux, Learning</p>
+    </center>
+    <hr>
+    <main>
+      
+      
+      
+      
+      <article>
+        <div class="center">
+          <h1>Static blog generation with blogc</h1>
+          <time>October 15, 2023</time>
+        </div>
+        <div class="divider"></div>
+        <p>I&#x27;m using blogc as my static site generator for this blog.</p>
+<h1 id="what-is-blogc-">What is blogc?</h1>
+<p>Blogc is a static site generator. The official manpage states:</p>
+<p>Blogc compiles source files and templates into blog&#x2F;website resources. It gets one (or more) source files and a template, and generates an output file, based on the template and the content read from the source file(s). It was designed to be used with make(1).</p>
+<p>From my point of view, it&#x27;s quite similar to Hugo or Jekyll.</p>
+<h1 id="why-blogc-">Why blogc?</h1>
+<p>I was looking for a static site generator, to document this project. In the past, for other projects, I used Jekyll, Hugo or Pelican, but since this project is about Linux and embedded development, I wanted to use a static site generator written in C.</p>
+<p>Blogc looked already on the fist glance very promising. It&#x27;s using make and autotools, the documentation is done as manpages, and the template syntax is Jinja2 like and was very familiar to me. Because of these reasons, I decided to go with it.</p>
+<h1 id="my-template">My template</h1>
+<p>My blog template is a fork of <a href="https://github.com/blogc/blogc-the-plain">https:&#x2F;&#x2F;github.com&#x2F;blogc&#x2F;blogc-the-plain</a>, which is a rebuild of &quot;The Plain v1&quot; Jekyll theme. I forked this repository as <a href="https://github.com/tifoss/blogc-the-plain">https:&#x2F;&#x2F;github.com&#x2F;tifoss&#x2F;blogc-the-plain</a>, and did some minor adaptions to match my needs, and fill my data.</p>
+<h1 id="how-to-build-the-blog-">How to build the blog?</h1>
+<p>First, you need to install blogc on your machine.</p>
+<h2 id="install-blogc">Install blogc</h2>
+<p>I forked <a href="https://github.com/blogc/blogc">https:&#x2F;&#x2F;github.com&#x2F;blogc&#x2F;blogc</a> and cloned the master branch. Building and installing blogc was quite straight forward. I had to install the dependency <code>ronn</code> ( <a href="https://github.com/rtomayko/ronn">https:&#x2F;&#x2F;github.com&#x2F;rtomayko&#x2F;ronn</a> ), but it&#x27;s available in the Debian repositories, so a simple <code>apt install ronn</code> did the job.</p>
+<p>Building blogc is straight forward, but you should make sure to enable all features you want, e.g. the local preview server:</p>
+<pre><code>$ .&#x2F;autogen.sh
+$ .&#x2F;configure --enable-git-receiver --enable-make --enable-runserver
+$ make
+# make install</code></pre>
+<h2 id="fill-the-template">Fill the template</h2>
+<p>I use my copy of <a href="https://github.com/blogc/blogc-the-plain">https:&#x2F;&#x2F;github.com&#x2F;blogc&#x2F;blogc-the-plain</a>. The template is making use of Gravatar, so I used the chance to create a Gravatar profile for this project: <a href="https://gravatar.com/mee0fbe392b72f7">https:&#x2F;&#x2F;gravatar.com&#x2F;mee0fbe392b72f7</a></p>
+<p>Configuring the template was straight forward. The <code>Makefile</code> contains some parameters. Also the templates are easy to read and to adapt. A look at the blogc source manpage ( <a href="https://blogc.rgm.io/man/blogc-source.7.html">https:&#x2F;&#x2F;blogc.rgm.io&#x2F;man&#x2F;blogc-source.7.html</a> ) and the blogc template manpage ( <a href="https://blogc.rgm.io/man/blogc-template.7.html">https:&#x2F;&#x2F;blogc.rgm.io&#x2F;man&#x2F;blogc-template.7.html</a> ) helps to become aware of the formatting and also available template variables.</p>
+<h2 id="local-preview">Local preview</h2>
+<p>The result can be locally preview using <code>make</code> to build the site, and <code>make serve</code> to run the blogc test server.</p>
+<p>After changing something, the following commands update the preview:</p>
+<pre><code>make clean; make; make serve</code></pre>
+<h2 id="publishing">Publishing</h2>
+<p>I use a Github static page to serve the blog. The content is in a repository on the main branch. I added this repository as git submodule to my template repository and adapted the build folder name.</p>
+
+      </article>
+      <div class="back">
+        <a href="/">Back</a>
+      </div>
+      
+    </main>
+  </body>
+</html>
