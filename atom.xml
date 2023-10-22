@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Tifoss.log</title>
   <id>/atom.xml</id>
-  <updated>2023-10-15T17:00:00Z</updated>
+  <updated>2023-10-22T17:00:00Z</updated>
   <link href="https://tifoss.eu/" />
   <link href="https://tifoss.eu/atom.xml" rel="self" />
   <author>
@@ -10,6 +10,48 @@
     <email>me@tifoss.eu</email>
   </author>
   <subtitle type="text">Open Source, Linux, Embedded Linux, Learning</subtitle>
+  
+  <entry>
+    <title type="text">Man pages</title>
+    <id>/post/man/</id>
+    <updated>2023-10-22T17:00:00Z</updated>
+    <published>2023-10-22T17:00:00Z</published>
+    <link href="https://tifoss.eu/post/man/" />
+    <author>
+      <name>Tifoss</name>
+      <email>me@tifoss.eu</email>
+    </author>
+    <content type="html"><![CDATA[<p>I started to read the &quot;Unix and Linux System Administration Handbook&quot;. Chapter 1 is named &quot;Where to Start&quot; and gives an overview of the remaing book and some references where to find help.</p>
+<p>The book tries to cover the Debian based distributions, the Red Hat based distributions, including SUSE, and BSD using FreeBSD as an example.</p>
+<p>The section about man pages was a nice reminder. Man pages are grouped into different sections. You can find the sections on the man page of man, by running <code>man man</code>.</p>
+<p>The command <code>man -k &lt;word&gt;</code> searches for manpages with the given word in their synopses. An alias for this is apropos.</p>
+<p>If you add new man pages, you can regenerate the index on Debian using <code>mandb</code>.</p>
+<p>Most man pages are stored, gzip compressed, in <code>&#x2F;usr&#x2F;share&#x2F;man</code>. On Debian, the command <code>manpath</code> lists the search paths for man pages.</p>
+<p>Man pages are opened with the command stored in the PAGER environment variable.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="text">Couch project: kilo</title>
+    <id>/post/kilo/</id>
+    <updated>2023-10-15T16:00:00Z</updated>
+    <published>2023-10-15T16:00:00Z</published>
+    <link href="https://tifoss.eu/post/kilo/" />
+    <author>
+      <name>Tifoss</name>
+      <email>me@tifoss.eu</email>
+    </author>
+    <content type="html"><![CDATA[<p>I&#x27;m following a tutorial which describes how to re-build the kilo editor step by step, to polish my C skills.</p>
+<h1 id="what-is-a-couch-project-">What is a couch project?</h1>
+<p>I&#x27;m always trying to improve my skills, and in the evenings, when I&#x27;m sitting on my couch, I&#x27;m usually learning and&#x2F; or coding on my second screen, and next to my wine glass.</p>
+<p>It&#x27;s not about producing high quality software, or doing intensive deep dives in new areas. It&#x27;s just about having fun, recap some old knowledge or skills and come down.</p>
+<h1 id="kilo">Kilo</h1>
+<p>Kilo is a small CLI editor, written in C using less than 1000 lines of code. For more details see <a href="https://github.com/antirez/kilo">https:&#x2F;&#x2F;github.com&#x2F;antirez&#x2F;kilo</a>.</p>
+<p>The blog series <a href="https://viewsourcecode.org/snaptoken/kilo/">https:&#x2F;&#x2F;viewsourcecode.org&#x2F;snaptoken&#x2F;kilo&#x2F;</a> is explaining the kilo editor step by step, and explains the code in details.</p>
+<p>I&#x27;m following these steps, to refresh my C skills and maybe learn some new CLI programming tricks. The result is published in my Github account:
+<a href="https://github.com/tifoss/kilo">https:&#x2F;&#x2F;github.com&#x2F;tifoss&#x2F;kilo</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="text">Static blog generation with blogc</title>
@@ -49,28 +91,6 @@ $ make
 <pre><code>make clean; make; make serve</code></pre>
 <h2 id="publishing">Publishing</h2>
 <p>I use a Github static page to serve the blog. The content is in a repository on the main branch. I added this repository as git submodule to my template repository and adapted the build folder name.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="text">Couch project: kilo</title>
-    <id>/post/kilo/</id>
-    <updated>2023-10-15T16:00:00Z</updated>
-    <published>2023-10-15T16:00:00Z</published>
-    <link href="https://tifoss.eu/post/kilo/" />
-    <author>
-      <name>Tifoss</name>
-      <email>me@tifoss.eu</email>
-    </author>
-    <content type="html"><![CDATA[<p>I&#x27;m following a tutorial which describes how to re-build the kilo editor step by step, to polish my C skills.</p>
-<h1 id="what-is-a-couch-project-">What is a couch project?</h1>
-<p>I&#x27;m always trying to improve my skills, and in the evenings, when I&#x27;m sitting on my couch, I&#x27;m usually learning and&#x2F; or coding on my second screen, and next to my wine glass.</p>
-<p>It&#x27;s not about producing high quality software, or doing intensive deep dives in new areas. It&#x27;s just about having fun, recap some old knowledge or skills and come down.</p>
-<h1 id="kilo">Kilo</h1>
-<p>Kilo is a small CLI editor, written in C using less than 1000 lines of code. For more details see <a href="https://github.com/antirez/kilo">https:&#x2F;&#x2F;github.com&#x2F;antirez&#x2F;kilo</a>.</p>
-<p>The blog series <a href="https://viewsourcecode.org/snaptoken/kilo/">https:&#x2F;&#x2F;viewsourcecode.org&#x2F;snaptoken&#x2F;kilo&#x2F;</a> is explaining the kilo editor step by step, and explains the code in details.</p>
-<p>I&#x27;m following these steps, to refresh my C skills and maybe learn some new CLI programming tricks. The result is published in my Github account:
-<a href="https://github.com/tifoss/kilo">https:&#x2F;&#x2F;github.com&#x2F;tifoss&#x2F;kilo</a></p>
 ]]></content>
   </entry>
   
